@@ -5,6 +5,7 @@ const app = express();
 const Post = require('./models/Post');
 const mongoose=require('mongoose');
 
+
 mongoose.connect('mongodb://localhost/cleanblog-test-db', {
 
   useNewUrlParser:true,
@@ -23,6 +24,13 @@ app.get('/', async (req, res) => {
 
   res.render('index', {
     posts
+  })
+});
+
+app.get('/posts/:id', async (req, res) => {
+  const post = await Post.findById(req.params.id)
+  res.render('post', {
+    post
   })
 });
   
