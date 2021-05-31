@@ -42,21 +42,21 @@
       -->
       
       
-        <form method="POST" action="/posts" encType="multipart/form-data" class="tm-contact-form">
+        <form method="POST" action="/posts/<%= post._id %>?_method=PUT" encType="multipart/form-data" class="tm-contact-form">
           <div class="form-group floating-label-form-group controls">
             <label>Post Title</label>
-            <input type="text" name="title" class="form-control rounded-0" placeholder="Post Title" required>
+            <input type="text" name="title" class="form-control rounded-0" placeholder="Post Title" value="<%= post.title %>" required>
           </div>
 
           <div class="form-group floating-label-form-group controls">
             <label>Post Detail</label>
-            <textarea rows="8" name="detail" class="form-control rounded-0" placeholder="Post description"
-                      required></textarea>
+            <textarea rows="8" name="detail"  class="form-control rounded-0" placeholder="<%= post.detail %>"
+              required></textarea>
           </div>
 
           <div class="form-group floating-label-form-group controls">
             <h4>Post image</h4>
-            <input type="file" name="image" class="form-control-file rounded-0">
+            <img src="<%= post.image %>">
           </div>
 
           <div class="form-group mb-0">
