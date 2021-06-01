@@ -4,13 +4,13 @@ const path=require('path');
 
 exports.getAllPosts = async (req, res) => {
     
-    const page = req.query.page || 1;                        // Başlangıç sayfamız veya ilk sayfamız.
-    const postsPerPage = 5;                                 // Her sayfada bulunan fotoğraf sayısı
-    const totalPosts = await Post.find().countDocuments(); // Toplam fotoğraf sayısı
+    const page = req.query.page || 1;                       
+    const postsPerPage = 5;                                 
+    const totalPosts = await Post.find().countDocuments(); 
   
-    const posts = await Post.find({})                      // Fotoğrafları alıyoruz  
-    .sort('-dateCreated')                                    // Fotoğrafları sıralıyoruz
-    .skip((page-1) * postsPerPage)                          // Her sayfanın kendi fotoğrafları
+    const posts = await Post.find({})                      
+    .sort('-dateCreated')                                   
+    .skip((page-1) * postsPerPage)                         
     .limit(postsPerPage) 
   
     res.render('index', {
