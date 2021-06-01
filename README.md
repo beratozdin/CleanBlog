@@ -9,7 +9,7 @@
  Live App: [Link](https://clean-blog-app.herokuapp.com/)
  
  
-## Technologies and Framework
+## :pushpin: :pushpin: Technologies and Framework :mag_right: :mag_right:
 
 :arrow_right: Express, Mongoose
 
@@ -19,7 +19,9 @@
 
 :arrow_right: EJS for template engine
 
+ :zap: :zap: Note: Free html template link : (https://startbootstrap.com/theme/clean-blog)
+
+
 ![image](https://user-images.githubusercontent.com/32714982/120359561-7aad4180-c310-11eb-898a-9ed85dd891f9.png)
 
- :point_right: :point_right: Note: Free html template link : (https://startbootstrap.com/theme/clean-blog)
 
