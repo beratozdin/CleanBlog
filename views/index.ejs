@@ -22,9 +22,9 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
                               
-        <% for (let i = posts.length-1; 0 <=i ; i--) { %>
+        <% for (let i = 0; i <posts.length ; i++) { %>
         <div class="post-preview">
-          <img src="<%= posts[i].image %>" alt="Image">
+          <img style="height: 300px;"src="<%= posts[i].image %>" alt="Image">
           <a href="/posts/<%= posts[i]._id %>">
             <h2 class="post-title">
               <%= posts[i].title %>
@@ -34,17 +34,30 @@
             </h3>
           </a>
           <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
+            <a href="https://github.com/beratozdin">Berat Özdin</a>
             <%= posts[i].dateCreated.toDateString() %></p>
         </div>
         
         <% } %>
         <hr>
 
+
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+          <% if (pages > 0) { %>
+            <ul>
+              <% for (i=1; i <=pages; i++) { %>
+                <%   if (i == current) { %>
+                  <li class="btn float-left"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                <% } else if (i < pages) { %>
+                  <li class="btn float-left"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                <%  } else { %>
+                  <li class="btn btn-primary float-left"><a href="/?page=<%= i %>" class="nav-link tm-paging-link">Older Posts</a></li>
+                <%  } %>
+              <%  } %>
+            </ul>
+          <% } %>
+         </div>
       </div>
     </div>
   </div>

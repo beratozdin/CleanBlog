@@ -3,12 +3,23 @@ const fs = require('fs');
 const path=require('path');
 
 exports.getAllPosts = async (req, res) => {
-    const posts = await Post.find({});
+    
+    const page = req.query.page || 1;                        // Başlangıç sayfamız veya ilk sayfamız.
+    const postsPerPage = 5;                                 // Her sayfada bulunan fotoğraf sayısı
+    const totalPosts = await Post.find().countDocuments(); // Toplam fotoğraf sayısı
+  
+    const posts = await Post.find({})                      // Fotoğrafları alıyoruz  
+    .sort('-dateCreated')                                    // Fotoğrafları sıralıyoruz
+    .skip((page-1) * postsPerPage)                          // Her sayfanın kendi fotoğrafları
+    .limit(postsPerPage) 
   
     res.render('index', {
-      posts
-    })
-  };
+
+      posts : posts,
+      current : page,
+      pages: Math.ceil(totalPosts/ postsPerPage)
+    });
+};
 
 exports.getPost = async (req, res) => {
   const post = await Post.findById(req.params.id)
@@ -40,9 +51,9 @@ exports.createPost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   const post = await Post.findOne({ _id: req.params.id });
-  post.title = req.body.title
-  post.detail = req.body.detail
-  post.save()
+  post.title = req.body.title;
+  post.detail = req.body.detail;
+  post.save();
 
   res.redirect(`/posts/${req.params.id}`)
 };

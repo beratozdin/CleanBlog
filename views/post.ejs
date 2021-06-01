@@ -26,8 +26,8 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <h2 class="section-heading"><%= post.title %></h2>
           <p><%= post.detail %></p>
-          <img src="<%= post.image %>">
-          <a href="/posts/edit/<%= post._id %>" type="button">Update Post</a>
+          <img style="width: 700px;" src="<%= post.image %>">
+          <a class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download" href="/posts/edit/<%= post._id %>" type="button">Update Post</a>
 
           <a href="/posts/<%= post._id %>?_method=DELETE" class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download"
             onclick="return confirm('ARE YOU SURE?')"><span>Delete Post</span></a>
