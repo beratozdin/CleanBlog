@@ -1,6 +1,6 @@
 # Clean Blog Project
 
-## This is patika.dev nodejs clean blog project.
+## This is patika.dev nodejs clean blog project.:mag_right::mag_right:
 
  Backend of project is coded Nodejs. For front-end, free html template and ejs are used for project.
  The project is deployed to heroku.
@@ -9,7 +9,7 @@
  Live App: [Link](https://clean-blog-app.herokuapp.com/)
  
  
-## :pushpin: :pushpin: Technologies and Framework :mag_right: :mag_right:
+## :pushpin::pushpin: Technologies and Framework 
 
 :arrow_right: Express, Mongoose
 
