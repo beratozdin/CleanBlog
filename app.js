@@ -21,7 +21,7 @@ mongoose.connect('mongodb+srv://berat:XH9cSeuo1Nhfgppw@cluster0.k7u7k.mongodb.ne
   console.log(err);
 })
 
-//mongodb+srv://berat:XH9cSeuo1Nhfgppw@cluster0.k7u7k.mongodb.net/clean-blog-db?retryWrites=true&w=majority
+
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
